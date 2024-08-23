@@ -1,0 +1,117 @@
+body {
+    font: 1em sans-serif;
+    text-align: center;
+}
+
+.stage {
+    border-bottom: 3px solid #444;
+    display: flex;
+    height: 330px;
+    width: 100%;
+}
+
+.box {
+    align-self: flex-end;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin: 0 auto;
+    transform-origin: bottom;
+}
+
+.simple {
+    animation-name: bounce-simple;
+}
+
+@keyframes bounce-simple {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(calc(var(--bounce-height) * -1)); }
+    100% { transform: translateY(0); }
+}
+
+.delay {
+    animation-name: bounce-delay;
+}
+
+@keyframes bounce-delay {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(calc(var(--bounce-height) * -1)); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+.curve {
+    animation-name: bounce-curve;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes bounce-curve {
+    0%   { transform: scale(1,1) translateY(0); }
+    10%  { transform: scale(1.1,.9) translateY(0); }
+    30%  { transform: scale(.9,1.1) translateY(calc(var(--bounce-height) * -1)); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1) translateY(calc(var(--bounce-height) * -0.07)); }
+    64%  { transform: scale(1,1) translateY(0); }
+    100% { transform: scale(1,1) translateY(0); }
+}
+
+
+.bounce {
+    animation-name: bounce;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.elastic {
+    animation-name: elastic;
+}
+
+@keyframes elastic {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.1) translateY(-30px);
+    }
+    70% {
+        transform: scale(0.9) translateY(-15px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.rubber {
+    animation-name: rubber;
+}
+
+@keyframes rubber {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px) scaleY(1.2);
+    }
+    60% {
+        transform: translateY(-15px) scaleY(0.9);
+    }
+}
+
+.highlight {
+    border: 2px solid yellow;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
